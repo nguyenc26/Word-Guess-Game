@@ -26,6 +26,12 @@ document.addEventListener("keypress", (event) => {
     console.log(keyword);
 });
 //check if guess is right
+if (keyword) {
+
+} else {
+    
+}
+
 //if user is correct we need to show on the under score 
 //if user is wrong it needs to show up on the words already guess 
     //also deduct a point of the lives left
