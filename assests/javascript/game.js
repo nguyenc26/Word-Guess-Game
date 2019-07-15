@@ -32,6 +32,13 @@ document.addEventListener("keypress", (event) => {
     if (ChoosenWord.indexOf(keyword) > -1) {
        //adding to right array
        rightWord.push(keyword);
+       //replace underscore with word
+       underscores[ChoosenWord.indexOf(keyword)] = keyword;
+       //check if word is the same
+       //only works for pikachu and squirtle????
+       if (underscores.join('') == ChoosenWord) {
+           alert('Congrats you caught a ' + ChoosenWord + "!");
+       }
        console.log(rightWord);
        //adding to wrong array 
     }else{
