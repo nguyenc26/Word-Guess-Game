@@ -35,7 +35,7 @@ document.addEventListener("keypress", (event) => {
        //replace underscore with word
        underscores[ChoosenWord.indexOf(keyword)] = keyword;
        //check if word is the same
-       //only works for pikachu and squirtle????
+       //only works for pikachu and squirtle???? Doesnt work for the other two words 
        if (underscores.join('') == ChoosenWord) {
            alert('Congrats you caught a ' + ChoosenWord + "!");
        }
