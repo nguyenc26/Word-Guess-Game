@@ -7,16 +7,19 @@ var rightWord = [];
 var wrongWord = [];
 var underscores = [];
 console.log(ChoosenWord);
-
-//guesses left 
-var guessesLeft = 15;
+var guessesLeft = 10;
 //document.getElementById("guesses-left").innerHTML = guessesLeft;
 //guesses that have already made 
+
+
+var docUnderscore = document.getElementsByClassName('underscore');
+
 
 //create underscores based on word 
 var generateUnderscore = () => {
     for (var i = 0; i < ChoosenWord.length; i++) {
         underscores.push("_");
+        
     }
     return underscores;
 }
@@ -52,12 +55,11 @@ document.addEventListener("keypress", (event) => {
             if (guessesLeft === 0) {
                 alert('Game Over! The ' + ChoosenWord + ' has escaped! Better luck next time.');
                 //how do do if a letter is guessed twice it doesnt subtract?
-
             }
         }
 
         console.log(wrongWord);
 
     }
-
+    docUnderscore[0].innerHTML = generateUnderscore().join('_');
 });

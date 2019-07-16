@@ -1,0 +1,38 @@
+header {
+    font-size: 30px;
+    text-align: center;
+    margin: 15px auto;
+    height: 150px;
+    width: 80%;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+.Wins{
+    font-size: 30px;
+    text-align: center;
+    height: 30px;
+}
+
+.underscore {
+    font-size: 30px;
+    text-align: center;
+    margin: 15px auto;
+    height: 150px;
+    width: 80%;
+}
+
+.guesses-left, .already-guessed {
+    font-size: 30px; 
+    text-align: center;
+    height: 150px;
+    width:40%;
+    float: left;
+    margin: 0 0 0 75.037px;
+}
+
+.already-guessed{
+    margin:0;
+}
