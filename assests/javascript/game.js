@@ -7,13 +7,20 @@ var rightWord = [];
 var wrongWord = [];
 var underscores = [];
 console.log(ChoosenWord);
-var guessesLeft = 10;
-//document.getElementById("guesses-left").innerHTML = guessesLeft;
+var Pokeballs = 10;
+//document.getElementById("Pokeballs").innerHTML = guessesLeft;
 //guesses that have already made 
 
-
 var docUnderscore = document.getElementsByClassName('underscore');
-var docRightguess = document.getElementsByClassName('guesses-left');
+var docRightguess = document.getElementsByClassName('Pokeballs');
+var docWrongguess = document.getElementsByClassName('already-guessed');
+
+//Does Not work ===============================
+//var Target = document.getElementsByClassName("Pokeballs");
+//Target.textContent = "Pokeballs Remaining";
+//var newDiv = document.createElement("div");
+//newDiv.textContent = Pokeballs;
+//=========================================
 
 //create underscores based on word 
 var generateUnderscore = () => {
@@ -37,6 +44,7 @@ document.addEventListener("keypress", (event) => {
         //replace underscore with word
         underscores[ChoosenWord.indexOf(keyword)] = keyword;
         docUnderscore[0].innerHTML = underscores.join(' ');
+        docRightguess[0].innerHTML = rightWord;
         //check if word is the same
         if (underscores.join('') == ChoosenWord) {
             alert('Congrats you caught a ' + ChoosenWord + "!");
@@ -48,11 +56,11 @@ document.addEventListener("keypress", (event) => {
         //wrong word is stored
         if (wrongWord) {
             //wrong word subtracts from guesses left
-            guessesLeft = guessesLeft - 1;
-            docGuessesLeft[0].innerHTML = guessesLeft;
-            console.log(guessesLeft)
+            Pokeballs = Pokeballs - 1;
+            docWrongguess[0].innerHTML = Pokeballs;
+            console.log(Pokeballs)
             //game over if guesses reaches 0
-            if (guessesLeft === 0) {
+            if (Pokeballs === 0) {
                 alert('Game Over! The ' + ChoosenWord + ' has escaped! Better luck next time.');
                 //how do do if a letter is guessed twice it doesnt subtract?
             }
@@ -63,3 +71,8 @@ document.addEventListener("keypress", (event) => {
     }
 
 });
+
+//how to get the game to display the _ and scores right away?
+//how to get it so repeat mistakes dont subtract from score?
+//HOW DO I MOVE THE DIVS?!
+//How would I change the game so that if I have repeating characters in the game, it will still register? Explain chimchar example. 
