@@ -1,5 +1,5 @@
 //Create an array of words
-const PokemonNames = ["pikachu", "charmander", "squirtle", "bulbasaur"]
+const PokemonNames = ["pikachu", "ash", "squirtle", "chimchar"]
 //choose the word and variables 
 var randomNumber = Math.floor(Math.random() * PokemonNames.length);
 var ChoosenWord = PokemonNames[randomNumber]
@@ -10,6 +10,7 @@ console.log(ChoosenWord);
 
 //guesses left 
 var guessesLeft = 15;
+//document.getElementById("guesses-left").innerHTML = guessesLeft;
 //guesses that have already made 
 
 //create underscores based on word 
@@ -18,7 +19,6 @@ var generateUnderscore = () => {
         underscores.push("_");
     }
     return underscores;
-    //ask what the return part does again.
 }
 console.log(generateUnderscore());
 
@@ -30,21 +30,34 @@ document.addEventListener("keypress", (event) => {
     //if the letter is in the array it is true. if not the result will be -1
     //if user guess is right
     if (ChoosenWord.indexOf(keyword) > -1) {
-       //adding to right array
-       rightWord.push(keyword);
-       //replace underscore with word
-       underscores[ChoosenWord.indexOf(keyword)] = keyword;
-       //check if word is the same
-       //only works for pikachu and squirtle???? Doesnt work for the other two words 
-       if (underscores.join('') == ChoosenWord) {
-           alert('Congrats you caught a ' + ChoosenWord + "!");
-       }
-       console.log(rightWord);
-       //adding to wrong array 
-    }else{
-       wrongWord.push(keyword);
-       console.log(wrongWord);
+        //adding to right array
+        rightWord.push(keyword);
+        //replace underscore with word
+        underscores[ChoosenWord.indexOf(keyword)] = keyword;
+        //check if word is the same
+        //only works for pikachu and squirtle???? Doesnt work for the other two words 
+        if (underscores.join('') == ChoosenWord) {
+            alert('Congrats you caught a ' + ChoosenWord + "!");
+        }
+        console.log(rightWord);
+        //adding to wrong array 
+    } else {
+        wrongWord.push(keyword);
+        //wrong word is stored
+        if (wrongWord) {
+            //wrong word subtracts from guesses left
+            guessesLeft = guessesLeft - 1;
+            console.log(guessesLeft)
+            //game over if guesses reaches 0
+            if (guessesLeft === 0) {
+                alert('Game Over! The ' + ChoosenWord + ' has escaped! Better luck next time.');
+                //how do do if a letter is guessed twice it doesnt subtract?
+
+            }
+        }
+
+        console.log(wrongWord);
 
     }
-    
+
 });
