@@ -1,5 +1,5 @@
 //Create an array of words
-const PokemonNames = ["pikachu", "ash", "squirtle", "chimchar"]
+const PokemonNames = ["pikachu", "tailow", "squirtle", "onix"]
 //choose the word and variables 
 var randomNumber = Math.floor(Math.random() * PokemonNames.length);
 var ChoosenWord = PokemonNames[randomNumber]
@@ -13,13 +13,12 @@ var guessesLeft = 10;
 
 
 var docUnderscore = document.getElementsByClassName('underscore');
-
+var docRightguess = document.getElementsByClassName('guesses-left');
 
 //create underscores based on word 
 var generateUnderscore = () => {
     for (var i = 0; i < ChoosenWord.length; i++) {
         underscores.push("_");
-        
     }
     return underscores;
 }
@@ -37,8 +36,8 @@ document.addEventListener("keypress", (event) => {
         rightWord.push(keyword);
         //replace underscore with word
         underscores[ChoosenWord.indexOf(keyword)] = keyword;
+        docUnderscore[0].innerHTML = underscores.join(' ');
         //check if word is the same
-        //only works for pikachu and squirtle???? Doesnt work for the other two words 
         if (underscores.join('') == ChoosenWord) {
             alert('Congrats you caught a ' + ChoosenWord + "!");
         }
@@ -50,6 +49,7 @@ document.addEventListener("keypress", (event) => {
         if (wrongWord) {
             //wrong word subtracts from guesses left
             guessesLeft = guessesLeft - 1;
+            docGuessesLeft[0].innerHTML = guessesLeft;
             console.log(guessesLeft)
             //game over if guesses reaches 0
             if (guessesLeft === 0) {
@@ -61,5 +61,5 @@ document.addEventListener("keypress", (event) => {
         console.log(wrongWord);
 
     }
-    docUnderscore[0].innerHTML = generateUnderscore().join('_');
+
 });
