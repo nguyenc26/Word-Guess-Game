@@ -1,5 +1,5 @@
 //Create an array of words
-const PokemonNames = ["pikachu", "tailow", "squirtle", "onix"];
+const PokemonNames = ["pikachu", "chimchar", "squirtle", "onix"];
 //choose the word and variables 
 var randomNumber = Math.floor(Math.random() * PokemonNames.length);
 var ChoosenWord = PokemonNames[randomNumber];
@@ -10,8 +10,13 @@ var underscores = [];
 var Pokeballs = 10;
 
 var docUnderscore = document.getElementsByClassName('underscore');
-var docWrongLetter = document.getElementsByClassName('wrongGuess');
+var docWrongLetter = document.getElementsByClassName('wrong');
 var docWrongguess = document.getElementsByClassName('Pokeballs');
+docWrongguess[0].textContent = Pokeballs;
+docWrongLetter[0].textContent = wrongWord;
+
+console.log(docUnderscore);
+
 
 //Does Not work ===============================
 //var Target = document.getElementsByClassName("Pokeballs");
@@ -29,6 +34,8 @@ var generateUnderscore = () => {
     return underscores;
 }
 console.log(generateUnderscore());
+//displays the comas WTF LOL 
+docUnderscore[0].textContent = underscores;
 
 //listen for user guess 
 document.addEventListener("keypress", (event) => {
@@ -41,7 +48,12 @@ document.addEventListener("keypress", (event) => {
         //adding to right array
         rightWord.push(keyword);
         //replace underscore with word
+         //for loop to search for all the strings 
+        //for (var i = 0; i < 
         underscores[ChoosenWord.indexOf(keyword)] = keyword;
+       
+
+
         docUnderscore[0].innerHTML = underscores.join(' ');
         //check if word is the same
         if (underscores.join('') == ChoosenWord) {
