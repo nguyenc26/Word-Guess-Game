@@ -1,25 +1,24 @@
 //Create an array of words
-const PokemonNames = ["pikachu", "tailow", "squirtle", "onix"]
+const PokemonNames = ["pikachu", "tailow", "squirtle", "onix"];
 //choose the word and variables 
 var randomNumber = Math.floor(Math.random() * PokemonNames.length);
-var ChoosenWord = PokemonNames[randomNumber]
+var ChoosenWord = PokemonNames[randomNumber];
+console.log(ChoosenWord);
 var rightWord = [];
 var wrongWord = [];
 var underscores = [];
-console.log(ChoosenWord);
 var Pokeballs = 10;
-//document.getElementById("Pokeballs").innerHTML = guessesLeft;
-//guesses that have already made 
 
 var docUnderscore = document.getElementsByClassName('underscore');
-var docRightguess = document.getElementsByClassName('Pokeballs');
-var docWrongguess = document.getElementsByClassName('already-guessed');
+var docWrongLetter = document.getElementsByClassName('wrongGuess');
+var docWrongguess = document.getElementsByClassName('Pokeballs');
 
 //Does Not work ===============================
 //var Target = document.getElementsByClassName("Pokeballs");
 //Target.textContent = "Pokeballs Remaining";
 //var newDiv = document.createElement("div");
 //newDiv.textContent = Pokeballs;
+//docRightguess[0].innerHTML = rightWord;
 //=========================================
 
 //create underscores based on word 
@@ -44,7 +43,6 @@ document.addEventListener("keypress", (event) => {
         //replace underscore with word
         underscores[ChoosenWord.indexOf(keyword)] = keyword;
         docUnderscore[0].innerHTML = underscores.join(' ');
-        docRightguess[0].innerHTML = rightWord;
         //check if word is the same
         if (underscores.join('') == ChoosenWord) {
             alert('Congrats you caught a ' + ChoosenWord + "!");
@@ -53,12 +51,13 @@ document.addEventListener("keypress", (event) => {
         //adding to wrong array 
     } else {
         wrongWord.push(keyword);
+        docWrongLetter[0].innerHTML = wrongWord;
         //wrong word is stored
         if (wrongWord) {
             //wrong word subtracts from guesses left
             Pokeballs = Pokeballs - 1;
             docWrongguess[0].innerHTML = Pokeballs;
-            console.log(Pokeballs)
+            console.log(Pokeballs);
             //game over if guesses reaches 0
             if (Pokeballs === 0) {
                 alert('Game Over! The ' + ChoosenWord + ' has escaped! Better luck next time.');
@@ -76,3 +75,4 @@ document.addEventListener("keypress", (event) => {
 //how to get it so repeat mistakes dont subtract from score?
 //HOW DO I MOVE THE DIVS?!
 //How would I change the game so that if I have repeating characters in the game, it will still register? Explain chimchar example. 
+//need to add win counter too 
